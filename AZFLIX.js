@@ -1,13 +1,13 @@
-document.querySelectorAll('.carousel').forEach((carousel) => { // ça récupère chaque carrousel de la page.
-    const container = carousel.querySelector('.derouler'); // ça récupère la partie qui va bouger.
-    const nextBtn = carousel.querySelector('.suivant'); // ça récupère le bouton suivant.
-    const prevBtn = carousel.querySelector('.avant'); // ça récupère le bouton précédent.
+document.querySelectorAll('.carousel').forEach((carousel) => { 
+    const container = carousel.querySelector('.derouler');
+    const nextBtn = carousel.querySelector('.suivant'); 
+    const prevBtn = carousel.querySelector('.avant'); 
 
     if (!container || !nextBtn || !prevBtn) { // si il manque un élément du carrousel.
-        return; // ça arrête pour éviter une erreur.
+        return; // ça arrête 
     }
 
-    let index = 0; // ça garde la position actuelle du carrousel.
+    let index = 0; // ça garde la dernière position du carousel. 
 
     const getStep = () => { // c'est une fonction qui calcule de combien on doit avancer.
         const firstCard = container.querySelector('.tourner'); // ça prend la première carte.
@@ -15,11 +15,11 @@ document.querySelectorAll('.carousel').forEach((carousel) => { // ça récupère
             return 0; // ça renvoie 0.
         }
 
-        const gap = parseFloat(getComputedStyle(container).gap) || 0; // ça récupère l'espace entre les cartes.
-        return firstCard.getBoundingClientRect().width + gap; // ça renvoie la taille d'une carte avec l'espace.
+        const gap = parseFloat(getComputedStyle(container).gap) || 0; //espace entre les cartes.
+        return firstCard.getBoundingClientRect().width + gap; 
     };
 
-    const getMaxIndex = () => { // fonction qui calcule la dernière position possible.
+    const getMaxIndex = () => { // c'est une fonction qui calcule la dernière position possible.
         const step = getStep(); // ça récupère la taille d'un déplacement.
         const visibleWidth = carousel.querySelector('.fenetre-carousel').clientWidth; // largeur visible du carrousel.
         const totalWidth = container.scrollWidth; // largeur totale de toutes les cartes.
@@ -40,10 +40,10 @@ document.querySelectorAll('.carousel').forEach((carousel) => { // ça récupère
         nextBtn.disabled = index === maxIndex; // ça désactive suivant si on est à la fin.
     };
 
-    nextBtn.addEventListener('click', () => { // quand on clique sur suivant.
-        if (index < getMaxIndex()) { // si on n'est pas à la fin.
-            index++; // ça avance d'une position.
-            updateCarousel(); // met à jour l'affichage.
+    nextBtn.addEventListener('click', () => { 
+        if (index < getMaxIndex()) { 
+            index++; 
+            updateCarousel(); 
         }
     });
 
@@ -63,19 +63,19 @@ const searchInput = document.querySelector('#searchInput'); // ça récupère la
 const films = document.querySelectorAll('.film-card'); // ça récupère toutes les cartes de films.
 
 function searchFunction() { // fonction pour chercher un film.
-    const recherche = searchInput.value.trim().toLowerCase(); // récupère le texte tapé en minuscule.
+    const recherche = searchInput.value.trim().toLowerCase(); // ça récupère le texte tapé en minuscule.
 
     films.forEach((film) => { // boucle sur chaque film.
         const titre = film.dataset.title || ''; // récupère le titre du film.
-        film.classList.toggle('film-cache', recherche !== '' && !titre.includes(recherche)); // cache le film si il ne correspond pas.
+        film.classList.toggle('film-cache', recherche !== '' && !titre.includes(recherche)); // ça cache le film si il ne correspond pas.
     });
 }
 
 if (searchForm && searchInput) { // si la recherche existe sur la page.
     searchForm.addEventListener('submit', (event) => { // quand on valide la recherche.
-        event.preventDefault(); // empêche la page de se recharger.
-        searchFunction(); // lance la recherche.
+        event.preventDefault(); // ça empêche la page de se recharger.
+        searchFunction(); // ça lance la recherche.
     });
 
-    searchInput.addEventListener('input', searchFunction); // lance la recherche pendant qu'on écrit.
+    searchInput.addEventListener('input', searchFunction); // ça lance la recherche pendant qu'on écrit.
 }

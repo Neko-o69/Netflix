@@ -1,27 +1,30 @@
 <?php
+$dossierSessions = __DIR__ . "/data/sessions";
+if (!is_dir($dossierSessions)) {
+    mkdir($dossierSessions, 0775, true);
+}
+session_save_path($dossierSessions);
 session_start();
 
 $erreur = "";
-$fichierUtilisateurs = __DIR__ . "/data/users.json";
+require __DIR__ . "/config/database.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // ça verifie si 
     $pseudo = trim($_POST['Pseudo'] ?? '');
     $mdp = $_POST['mdp'] ?? '';
-    $utilisateurs = [];
 
-    if (file_exists($fichierUtilisateurs)) {
-        $contenu = file_get_contents($fichierUtilisateurs);
-        $utilisateurs = json_decode($contenu, true) ?: [];
-    }
-
-    if (isset($utilisateurs[$pseudo]) && password_verify($mdp, $utilisateurs[$pseudo]['mot_de_passe'])) {
+    if ($pseudo == "admin" && $mdp == "test") {
         $_SESSION['pseudo'] = $pseudo;
         header("Location: azflix.php");
         exit();
     }
 
-    if ($pseudo == "admin" && $mdp == "test") {
-        $_SESSION['pseudo'] = $pseudo;
+    $requete = $pdo->prepare("SELECT pseudo, mot_de_passe FROM utilisateurs WHERE pseudo = ?");
+    $requete->execute([$pseudo]);
+    $utilisateur = $requete->fetch();
+
+    if ($utilisateur && password_verify($mdp, $utilisateur['mot_de_passe'])) {
+        $_SESSION['pseudo'] = $utilisateur['pseudo'];
         header("Location: azflix.php");
         exit();
     }
@@ -46,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <?php if (!empty($erreur)) : ?>
-    <p style="color:red;"><?= $erreur ?></p>
+    <p style="color:red;"><?= htmlspecialchars($erreur) ?></p>
 <?php endif; ?>
 
 <form method="post" action="">

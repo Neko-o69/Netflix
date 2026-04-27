@@ -63,7 +63,7 @@ $nouveautes = [ // ici je range les nouveaux films.
         <div class="profil"> 
             <?php if ($pseudo) : ?> //si un utilisateur est connecté.
                 <span>Bonjour <?= htmlspecialchars($pseudo) ?></span> //ça dit bonjour et ça affiche son pseudo 
-            <?php else : ?> //sinon il n'est pas connecté.
+            <?php else : ?> //sinon si il est pas connecté on le redirige vers la page de connexion.
                 <a href="connexion.php">Connexion</a> 
             <?php endif; ?> 
         </div>
@@ -87,24 +87,23 @@ $nouveautes = [ // ici je range les nouveaux films.
             </div>
 
             <div class="carousel"> <!-- carrousel des films. -->
-                <button class="avant" type="button" aria-label="Films précédents">‹</button> <!-- bouton pour aller à gauche. -->
+                <button class="avant" type="button" aria-label="Films précédents">‹</button> 
                 <div class="fenetre-carousel"> 
                     <div class="derouler"> 
                         <?php foreach ($topFilms as $film) : ?> 
-                            <article class="tourner film-card" data-title="<?= htmlspecialchars(strtolower($film['titre'])) ?>"> <!-- carte d'un film. -->
-                                <span class="rang"><?= $film['rang'] ?></span> <!-- affiche le rang du film. -->
-                                <img src="<?= htmlspecialchars($film['image']) ?>" alt="Affiche du film <?= htmlspecialchars($film['titre']) ?>"> <!-- affiche l'image du film. -->
-                                <h3><?= htmlspecialchars($film['titre']) ?></h3> <!-- affiche le titre du film. -->
+                            <article class="tourner film-card" data-title="<?= htmlspecialchars(strtolower($film['titre'])) ?>"> 
+                                <span class="rang"><?= $film['rang'] ?></span> 
+                                <img src="<?= htmlspecialchars($film['image']) ?>" alt="Affiche du film <?= htmlspecialchars($film['titre']) ?>"> 
+                                <h3><?= htmlspecialchars($film['titre']) ?></h3> 
                             </article>
                         <?php endforeach; ?> 
                     </div>
                 </div>
-                <button class="suivant" type="button" aria-label="Films suivants">›</button> <!-- bouton pour aller à droite. -->
-            </div>
+                <button class="suivant" type="button" aria-label="Films suivants">›</button> 
         </section>
 
         <section class="message"> 
-            <h2>Bienvenue dans notre sélection des meilleurs films</h2> <!-- titre du message. -->
+            <h2>Bienvenue dans notre sélection des meilleurs films</h2> 
             <p class="texte"> 
                 Choisis un film, fais défiler les affiches et utilise la barre de recherche pour retrouver rapidement un titre.
             </p>
@@ -115,14 +114,14 @@ $nouveautes = [ // ici je range les nouveaux films.
                 <h2 class="titre">Nouveautés sur AZFLIX</h2> 
             </div>
 
-            <div class="carousel"> <!-- carrousel des nouveautés. -->
+            <div class="carousel"> 
                 <button class="avant" type="button" aria-label="Nouveautés précédentes">‹</button> 
                 <div class="fenetre-carousel"> 
                     <div class="derouler"> 
                         <?php foreach ($nouveautes as $film) : ?> 
-                            <article class="tourner film-card" data-title="<?= htmlspecialchars(strtolower($film['titre'])) ?>"> <!-- carte d'un film. -->
-                                <img src="<?= htmlspecialchars($film['image']) ?>" alt="Affiche du film <?= htmlspecialchars($film['titre']) ?>"> <!-- affiche l'image du film. -->
-                                <h3><?= htmlspecialchars($film['titre']) ?></h3> <!-- affiche le titre du film. -->
+                            <article class="tourner film-card" data-title="<?= htmlspecialchars(strtolower($film['titre'])) ?>">
+                                <img src="<?= htmlspecialchars($film['image']) ?>" alt="Affiche du film <?= htmlspecialchars($film['titre']) ?>"> // ça affiche l'image du film. -->
+                                <h3><?= htmlspecialchars($film['titre']) ?></h3> ça affiche le titre du film. 
                             </article>
                         <?php endforeach; ?> 
                     </div>
