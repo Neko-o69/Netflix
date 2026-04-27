@@ -1,0 +1,46 @@
+body {
+    background-color: lightblue;
+    background-size: 100px;
+    padding: 40px 100px;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 40px 100px;
+    border-radius: 20px;
+    min-width: 300px;
+    
+}
+
+form {
+    box-shadow: 2px 2px 20px green;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+input{
+    text-align: center;
+    width: 70%;               
+    padding: 12px 20px;        
+    margin: 8px 0;    
+    box-sizing: content-box;
+}
+
+label {
+    font-size: larger;
+}
+
+#btValider {background-color: #04AA6D;} 
+#btEffacer {background-color: #db0404;} 
+
+#Ndate{
+    display: flex;
+    justify-content: row;
+}

@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    background: linear-gradient(to right, #000000, #d80000, #000000);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.gauche {
+   
+    width: 30%;  
+    height: 100vh;  
+}
+
+
+.centre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form{
+    color: #ffffff;
+    background-color: rgb(0, 0, 0); 
+    border-radius: 20px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20%;
+    height: 80%;
+}
+.Formulaire{
+   #
+    
+
+}
+
+.typing-effect{
+
+    color: #d80000;
+    display: flex;
+   justify-content: space-around;
+
+}
+
+
+.droite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; 
+    
+    height: 100vh;
+    min-width: 300px;
+}
+
+.button2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button3 {
+    text-align: center;
+    color: #eee;
+    background-color: rgb(0, 0, 0); 
+    padding: 40px 100px;
+    border-radius: 20px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#souvenir{
+    width: 20px;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+    margin-left: 100px;
+}
+
+#p{
+    border-radius: 40px;
+    color: #eee;
+    background-color: rgb(0, 0, 0); 
+    
+}
+form input {
+    background: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+.titre{
+    display: flex;
+    justify-content:flex-start ;
+    color: red;
+}
+
+.haut {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+
+
+.logo {
+    color: red;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.haut-centre {
+    display: flex;
+    justify-content: center;
+}
+
+.haut-centre input {
+    width: 170px;
+    max-width: 400px;
+    padding: 15px 60px;
+    border-radius: 30px;
+    font-size: 12px;
+    margin-right: 820px;
+}
+
+

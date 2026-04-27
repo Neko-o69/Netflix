@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS azflix
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_general_ci;
+
+USE azflix;
+
+CREATE TABLE IF NOT EXISTS utilisateurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pseudo VARCHAR(100) NOT NULL UNIQUE,
+    mot_de_passe VARCHAR(255) NOT NULL,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    date_naissance DATE NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    sexe VARCHAR(30) NOT NULL,
+    date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
